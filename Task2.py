@@ -48,7 +48,12 @@ for call in calls:
     answering_call = call[1]
     time = int(call[3])
 
-call_durations[incoming_call] = call_durations.get(incoming_call, 0) + time
+if incoming_call in call_durations:
+    call_durations[incoming_call] += time
+else:
+    call_durations[incoming_call] = time
+
+# call_durations[incoming_call] = call_durations.get(incoming_call, 0) + time
 
 call_durations[answering_call] = call_durations.get(answering_call, 0) + time
 
