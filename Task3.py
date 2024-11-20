@@ -45,7 +45,7 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-codes = set()  # To store unique codes
+codes = set()  # To store codes
 total_calls_from_080 = 0
 calls_to_080 = 0
 
@@ -60,7 +60,7 @@ for call in calls:
         # Fixed line numbers: Extract area code inside parentheses
         if receiver.startswith("("):
             end_search = receiver.find(")")
-            area_code = receiver[1:end_search]  # Extract code excluding parentheses
+            area_code = receiver[1:end_search]  # Extract code excluding parentheses (from ( to ))
             codes.add(area_code)
 
             # Count if the receiver is also from Bangalore
